@@ -5,26 +5,27 @@ import java.util.*;
 public class Transaction {
 	private String Day = null;
 	private int id = 0;
-	private Double type = 0.0;
+	private String type = null;
 	private Date Time_Of_Day = null;
 	private String Description = null;
-	private float Ammount = 0;
+	private float Amount = 0;
 	public String getDay() {
 		return Day;
 	}
 	public void setDay(String day) {
-		Day = day;
+		Day = day.toUpperCase();;
 	}
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId() {
+		//find a way to create a new id
+		this.id = GlobalUtils.getInstance().getNewTransactionId();
 	}
-	public Double getType() {
+	public String getType() {
 		return type;
 	}
-	public void setType(Double type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 	public Date getTime_Of_Day() {
@@ -40,11 +41,11 @@ public class Transaction {
 	public void setDescription(String description) {
 		Description = description;
 	}
-	public float getAmmount() {
-		return Ammount;
+	public float getAmount() {
+		return Amount;
 	}
-	public void setAmmount(float ammount) {
-		Ammount = ammount;
+	public void setAmount(float amount) {
+		Amount = amount;
 	}
 
 }
