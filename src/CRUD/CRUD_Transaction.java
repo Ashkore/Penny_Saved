@@ -1,10 +1,8 @@
 package CRUD;
-import java.util.*;
-
-import Resources.Transaction;
 import Resources.GlobalUtils;
+import Resources.Transaction;
 public class CRUD_Transaction {
-	public void Create(String day, String type, Date time_Of_Day, String description, float amount) {
+	public void Create(String day, String type, String time_Of_Day, String description, float amount) {
 		Transaction transaction = new Transaction();
 		transaction.setAmount(amount);
 		transaction.setDay(day);
@@ -18,7 +16,7 @@ public class CRUD_Transaction {
 		Transaction transaction = GlobalUtils.getInstance().GetTransactionforID(id);
 		return transaction;
 	}
-	public String Update(int oldID, String day, String type, Date time_Of_Day, String description, float amount) {
+	public String Update(int oldID, String day, String type, String time_Of_Day, String description, float amount) {
 		Transaction newtransaction = new Transaction();
 		newtransaction.setAmount(amount);
 		newtransaction.setDay(day);

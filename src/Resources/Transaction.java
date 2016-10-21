@@ -1,12 +1,11 @@
 package Resources;
 
-import java.util.*;
-
 public class Transaction {
+	public static int lastId = 1;
 	private String Day = null;
 	private int id = 0;
 	private String type = null;
-	private Date Time_Of_Day = null;
+	private String Time_Of_Day = null;
 	private String Description = null;
 	private float Amount = 0;
 	public String getDay() {
@@ -28,10 +27,10 @@ public class Transaction {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Date getTime_Of_Day() {
+	public String getTime_Of_Day() {
 		return Time_Of_Day;
 	}
-	public void setTime_Of_Day(Date time_Of_Day) {
+	public void setTime_Of_Day(String time_Of_Day) {
 		//Convert to 12hour/ 24 hour format
 		Time_Of_Day = time_Of_Day;
 	}
@@ -47,5 +46,5 @@ public class Transaction {
 	public void setAmount(float amount) {
 		Amount = amount;
 	}
-
+	
 }
