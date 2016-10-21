@@ -18,6 +18,9 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 
+import CRUD.CRUD_Transaction;
+import Resources.GlobalUtils;
+
 public class MainGUIScreen {
 
 	private JFrame frame;
@@ -129,6 +132,16 @@ public class MainGUIScreen {
 		JButton btnSave = new JButton("Save");
 		btnSave.setBounds(169, 181, 117, 29);
 		createTransaction.add(btnSave);
+		btnSave.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CRUD_Transaction CRUD = new CRUD_Transaction();
+				CRUD.Create(dayOfWeekCombo.getSelectedItem().toString(), rdbtnExpense.getText(), dateSpinner.getValue().toString(), descriptionPane.getText(), Float.parseFloat(amountTextField.getText()));
+				System.out.println(GlobalUtils.getInstance().getAllTransactions().toString());
+			}
+		}
+		);
+	
 		
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
