@@ -8,12 +8,12 @@ public class Transaction {
 	private Double type = 0.0;
 	private Date Time_Of_Day = null;
 	private String Description = null;
-	private float Ammount = 0;
+	private float Amount = 0;
 	public String getDay() {
 		return Day;
 	}
 	public void setDay(String day) {
-		Day = day;
+		Day = day.toUpperCase();;
 	}
 	public int getId() {
 		return id;
@@ -40,11 +40,11 @@ public class Transaction {
 	public void setDescription(String description) {
 		Description = description;
 	}
-	public float getAmmount() {
-		return Ammount;
+	public float getAmount() {
+		return Amount;
 	}
-	public void setAmmount(float ammount) {
-		Ammount = ammount;
+	public void setAmount(float amount) {
+		Amount = amount;
 	}
 
 }
