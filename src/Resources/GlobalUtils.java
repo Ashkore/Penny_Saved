@@ -11,7 +11,29 @@ public class GlobalUtils
 	{
 		_instance.transactionArray = new ArrayList<Transaction>();
 	}
-	
+	public int getNewTransactionId(){
+		int previousTransactionID = 0;
+		for (Transaction eachTransaction : transactionArray) {
+			if (eachTransaction.getId() > previousTransactionID) {
+				previousTransactionID = eachTransaction.getId();
+			}
+		}
+		return previousTransactionID+1;
+		
+	}
+	public double getTotalRevenue(){
+		float total = 0;
+		for (Transaction eachTransaction : transactionArray) {
+			float amount = eachTransaction.getAmount();
+			String type = eachTransaction.getType();
+			if (type.toLowerCase() == "revenue"){
+				total += amount;
+			}
+			else {total -=amount;}
+		}
+		return total;
+		
+	}
 	public void AddTransaction(Transaction transaction) 
 	{
 		_instance.transactionArray.add(transaction);

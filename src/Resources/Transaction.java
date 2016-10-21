@@ -5,7 +5,7 @@ import java.util.*;
 public class Transaction {
 	private String Day = null;
 	private int id = 0;
-	private Double type = 0.0;
+	private String type = null;
 	private Date Time_Of_Day = null;
 	private String Description = null;
 	private float Amount = 0;
@@ -18,13 +18,14 @@ public class Transaction {
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId() {
+		//find a way to create a new id
+		this.id = GlobalUtils.getInstance().getNewTransactionId();
 	}
-	public Double getType() {
+	public String getType() {
 		return type;
 	}
-	public void setType(Double type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 	public Date getTime_Of_Day() {
