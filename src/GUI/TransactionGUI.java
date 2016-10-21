@@ -1,21 +1,23 @@
 package GUI;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 import javax.swing.ButtonGroup;
-import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerDateModel;
-import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.JEditorPane;
-import javax.swing.JButton;
+import javax.swing.SpinnerDateModel;
+
+import CRUD.CRUD_Transaction;
+import Resources.GlobalUtils;
 
 public class TransactionGUI 
 {
@@ -124,6 +126,16 @@ public class TransactionGUI
 		JButton btnSave = new JButton("Save");
 		btnSave.setBounds(177, 230, 117, 29);
 		frame.getContentPane().add(btnSave);
-		
+		btnSave.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CRUD_Transaction CRUD = new CRUD_Transaction();
+				CRUD.Create(dayOfWeekCombo.getSelectedItem().toString(), rdbtnExpense.getText(), dateSpinner.getValue().toString(), descriptionPane.getText(), Float.parseFloat(amountTextField.getText()));
+				System.out.println(GlobalUtils.getInstance().getAllTransactions().toString());
+			}
+		}
+		);
 	}
-}
+};
+
+	
